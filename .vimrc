@@ -26,6 +26,7 @@ Bundle 'jreybert/vimagit'
 Bundle 'wincent/command-t'
 Bundle 'FooSoft/vim-argwrap'
 Bundle 'jceb/vim-orgmode'
+Bundle 'vim-scripts/gtags.vim'
 call vundle#end()
 filetype plugin indent on
 
