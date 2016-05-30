@@ -61,6 +61,7 @@ autocmd BufWritePre *.tex :%s/\s\+$//e
 autocmd BufWritePre Makefile :%s/\s\+$//e
 autocmd BufWritePre .vimrc :%s/\s\+$//e
 autocmd BufWritePre vimrc :%s/\s\+$//e
+autocmd BufWritePre *.org :%s/\s\+$//e
 
 au BufNewFile * set noeol
 au BufRead,BufNewFile *.go set filetype=go
