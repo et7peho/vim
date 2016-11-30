@@ -27,6 +27,8 @@ Bundle 'wincent/command-t'
 Bundle 'FooSoft/vim-argwrap'
 Bundle 'jceb/vim-orgmode'
 Bundle 'vim-scripts/gtags.vim'
+Bundle 'majutsushi/tagbar'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -62,6 +64,7 @@ autocmd BufWritePre Makefile :%s/\s\+$//e
 autocmd BufWritePre .vimrc :%s/\s\+$//e
 autocmd BufWritePre vimrc :%s/\s\+$//e
 autocmd BufWritePre *.org :%s/\s\+$//e
+"autocmd BufWritePre ,org :%s/\s\+$//e
 
 au BufNewFile * set noeol
 au BufRead,BufNewFile *.go set filetype=go
@@ -158,9 +161,9 @@ map <C-n> :NERDTreeToggle<CR>
 
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
-autocmd BufRead,BufNewFile *.md setlocal spell
-set complete+=kspell
-setlocal spell spelllang=en_us
+"autocmd BufRead,BufNewFile *.md setlocal spell
+"set complete+=kspell
+"setlocal spell spelllang=en_us
 " from
 " " http://vim.wikia.com/wiki/Automatically_open_the_quickfix_window_on_:make
 " " Command Make will call make and then cwindow which
@@ -170,8 +173,8 @@ command -nargs=* Make make <args> | cwindow 3
 map <Leader>j :Make<CR>
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
-set makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
-set errorformat=%f:%l:\ %m
+"set makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
+"set errorformat=%f:%l:\ %m
 
 "Below Need more love
 "set statusline+=%#warningmsg#
