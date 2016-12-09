@@ -1,40 +1,50 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/vim/bundle/Vundle.vim
 call vundle#begin()
 " Let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
 " My Bundles
-Bundle 'tpope/vim-speeddating'
+Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-surround'
-"Bundle 'tpope/vim-fugitive'
-"Bundle 'tpope/vim-rails'
-"Bundle 'tpope/vim-rake'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'scrooloose/syntastic'
-"Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'rking/ag.vim'
-Bundle 'kana/vim-textobj-user'
-"Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'slim-template/vim-slim'
-Bundle 'jreybert/vimagit'
-Bundle 'wincent/command-t'
-Bundle 'FooSoft/vim-argwrap'
-Bundle 'jceb/vim-orgmode'
-Bundle 'vim-scripts/gtags.vim'
-Bundle 'majutsushi/tagbar'
+Bundle 'tpope/vim-fugitive'
+"Git plugin
 
+
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
+"Bundle 'ctrlpvim/ctrlp.vim'
+Bundle 'tbknl/vimproject'
+
+"Bundle 'tpope/vim-speeddating'
+"Could be good to have
+"Bundle 'jreybert/vimagit'
+""Git plugin compare with above
+
+"Bundle 'nanotech/jellybeans.vim'
+""Colourscheme
+
+Bundle 'powerline/powerline' , {'rtp': 'powerline/bindings/vim/'}
+
+""Tagbar problems
+"Bundle 'jceb/vim-orgmode'
+"Bundle 'slim-template/vim-slim'
+""Maybe gone
+"Bundle 'wincent/command-t'
+""evaluate
+"Bundle 'FooSoft/vim-argwrap'
+""More check"
+
+source /usr/local/share/gtags/gtags.vim
 call vundle#end()
 filetype plugin indent on
 
 let mapleader=","
 
-colorscheme elflord
+colorscheme murphy
 
 set cursorline
 set expandtab
@@ -109,9 +119,6 @@ nmap <leader>n :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
 
-" Syntastic
-let g:syntastic_mode_map = { 'mode': 'passive' }
-let g:syntastic_ruby_exec = '~/.rvm/rubies/ruby-2.0.0-p0/bin/ruby'
 
 " CtrlP
 nnoremap <silent> t :CtrlP<cr>
@@ -145,7 +152,7 @@ nnoremap <space>gps :Dispatch! git push<CR>
 nnoremap <space>gpl :Dispatch! git pull<CR>
 
 set autochdir
-set tags=tags;
+"set tags=tags;
 set tabstop=3
 set softtabstop=3
 " size of an "indent"
@@ -177,14 +184,18 @@ autocmd QuickFixCmdPost    l* nested lwindow
 "set errorformat=%f:%l:\ %m
 
 "Below Need more love
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+" Syntastic
+let g:syntastic_mode_map = { 'mode': 'active' }
+"let g:syntastic_ruby_exec = '~/.rvm/rubies/ruby-2.0.0-p0/bin/ruby'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+"syntastic-checkers-c
 "
 set number
 set relativenumber
