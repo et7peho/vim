@@ -7,14 +7,18 @@ call vundle#begin()
 Bundle 'gmarik/vundle'
 
 " My Bundles
+
+" Show tags
 Bundle 'majutsushi/tagbar'
+"some default settings
 Bundle 'tpope/vim-sensible'
+"Qouting
 Bundle 'tpope/vim-surround'
+"Git wrapper
 Bundle 'tpope/vim-fugitive'
-"Git plugin
 
-
-Bundle 'scrooloose/syntastic'
+Bundle 'vim-scripts/cscope.vim'
+"Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 "Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'tbknl/vimproject'
@@ -38,7 +42,7 @@ Bundle 'powerline/powerline' , {'rtp': 'powerline/bindings/vim/'}
 "Bundle 'FooSoft/vim-argwrap'
 ""More check"
 
-source /usr/local/share/gtags/gtags.vim
+"source /usr/local/share/gtags/gtags.vim
 call vundle#end()
 filetype plugin indent on
 
