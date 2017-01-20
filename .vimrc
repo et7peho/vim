@@ -17,11 +17,13 @@ Bundle 'tpope/vim-surround'
 "Git wrapper
 Bundle 'tpope/vim-fugitive'
 
-Bundle 'vim-scripts/cscope.vim'
+"Bundle 'vim-scripts/cscope.vim'
+Bundle 'joe-skb7/cscope-maps.git'
 "Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 "Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'tbknl/vimproject'
+Bundle 'vivien/vim-linux-coding-style'
 
 "Bundle 'tpope/vim-speeddating'
 "Could be good to have
@@ -112,10 +114,10 @@ nnoremap <leader><leader> <C-^>
 
 " Resize buffers
 if bufwinnr(1)
-  nmap Ä <C-W><<C-W><
-  nmap Ö <C-W>><C-W>>
-  nmap ö <C-W>-<C-W>-
-  nmap ä <C-W>+<C-W>+
+   nmap Ä <C-W><<C-W><
+   nmap Ö <C-W>><C-W>>
+   nmap ö <C-W>-<C-W>-
+   nmap ä <C-W>+<C-W>+
 endif
 
 " NERDTree
@@ -205,3 +207,13 @@ set number
 set relativenumber
 noremap Y y$
 nnoremap <leader>q :ArgWrap<CR>
+function! LoadCscope()
+   let db = findfile("cscope.out", ".;")
+   if (!empty(db))
+      let path = strpart(db, 0, match(db, "/cscope.out$"))
+      set nocscopeverbose " suppress 'duplicate connection' error
+      exe "cs add " . db . " " . path
+      set cscopeverbose
+   endif
+endfunction
+au BufEnter /* call LoadCscope()
